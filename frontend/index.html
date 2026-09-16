@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Calculadora financeira com desconto promocional e simulador de economia.">
+  <title>Calculadora financeira</title>
+  <link rel="stylesheet" href="/frontend/styles.css">
+</head>
+<body>
+  <main class="shell">
+    <header class="topbar">
+      <a class="brand" href="/frontend/" aria-label="Página inicial">
+        <span class="brand-mark">+</span>
+        <span>conta<span class="brand-accent">certa</span></span>
+      </a>
+      <span class="status"><span class="status-dot"></span>API online</span>
+    </header>
+
+    <section class="intro" aria-labelledby="page-title">
+      <p class="eyebrow">Matemática financeira</p>
+      <h1 id="page-title">Decisões melhores começam<br><em>com números claros.</em></h1>
+      <p class="intro-copy">Use as ferramentas abaixo para conferir uma compra ou planejar o próximo objetivo.</p>
+    </section>
+
+    <nav class="tabs" aria-label="Calculadoras">
+      <button class="tab is-active" type="button" data-target="desconto-panel">Desconto promocional</button>
+      <button class="tab" type="button" data-target="economia-panel">Economia mensal</button>
+    </nav>
+
+    <section class="calculator-grid">
+      <article class="panel is-active" id="desconto-panel">
+        <div class="panel-heading">
+          <div>
+            <span class="panel-number">01</span>
+            <h2>Desconto na compra</h2>
+          </div>
+          <span class="panel-icon">%</span>
+        </div>
+        <p class="panel-description">Confira o valor final usando o cupom promocional.</p>
+        <form id="desconto-form" novalidate>
+          <label for="valor-compra">Valor da compra</label>
+          <div class="input-prefix"><span>R$</span><input id="valor-compra" name="valor_compra" type="number" min="0" step="0.01" placeholder="200,00" required></div>
+          <label for="cupom">Cupom promocional</label>
+          <input id="cupom" name="cupom" type="text" value="PROMO15" autocomplete="off" required>
+          <p class="field-hint">Válido para compras acima de R$ 50,00.</p>
+          <button class="submit-button" type="submit">Calcular desconto <span aria-hidden="true">→</span></button>
+        </form>
+        <div class="feedback" id="desconto-feedback" role="alert" aria-live="polite"></div>
+        <div class="result" id="desconto-result" aria-live="polite" hidden>
+          <div class="result-label">Valor final</div>
+          <strong class="result-value" id="valor-final">R$ 0,00</strong>
+          <div class="result-meta"><span id="desconto-resumo"></span><span class="saving" id="valor-desconto"></span></div>
+        </div>
+      </article>
+
+      <article class="panel" id="economia-panel" hidden>
+        <div class="panel-heading">
+          <div>
+            <span class="panel-number">02</span>
+            <h2>Meta financeira</h2>
+          </div>
+          <span class="panel-icon">↗</span>
+        </div>
+        <p class="panel-description">Descubra quanto guardar por mês e quando sua meta chega.</p>
+        <form id="economia-form" novalidate>
+          <label for="renda-mensal">Renda mensal</label>
+          <div class="input-prefix"><span>R$</span><input id="renda-mensal" name="renda_mensal" type="number" min="0" step="0.01" placeholder="3.000,00" required></div>
+          <label for="gastos-fixos">Gastos fixos</label>
+          <div class="input-prefix"><span>R$</span><input id="gastos-fixos" name="gastos_fixos" type="number" min="0" step="0.01" placeholder="2.000,00" required></div>
+          <label for="meta-financeira">Meta financeira</label>
+          <div class="input-prefix"><span>R$</span><input id="meta-financeira" name="meta_financeira" type="number" min="0" step="0.01" placeholder="2.500,00" required></div>
+          <button class="submit-button" type="submit">Simular economia <span aria-hidden="true">→</span></button>
+        </form>
+        <div class="feedback" id="economia-feedback" role="alert" aria-live="polite"></div>
+        <div class="result" id="economia-result" aria-live="polite" hidden>
+          <div class="result-label">Tempo estimado</div>
+          <strong class="result-value" id="meses-necessarios">0 meses</strong>
+          <div class="result-meta"><span id="economia-resumo"></span><span class="saving" id="economia-mensal"></span></div>
+        </div>
+      </article>
+    </section>
+
+    <footer>Feito com amor ❤️.</footer>
+  </main>
+  <script src="/frontend/app.js"></script>
+</body>
+</html>

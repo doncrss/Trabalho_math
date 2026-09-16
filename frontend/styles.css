@@ -1,0 +1,105 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Manrope:wght@400;500;600;700;800&display=swap');
+
+:root {
+  --ink: #16231f;
+  --muted: #66736e;
+  --line: #dce4df;
+  --paper: #f5f7f3;
+  --panel: #ffffff;
+  --mint: #bfe8d0;
+  --green: #0d6b4c;
+  --green-dark: #084e39;
+  --coral: #f2785c;
+  --shadow: 0 20px 55px rgba(29, 61, 47, 0.08);
+}
+
+* { box-sizing: border-box; }
+
+body {
+  min-width: 320px;
+  margin: 0;
+  color: var(--ink);
+  background: var(--paper);
+  font-family: 'Manrope', sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+
+body::before {
+  position: fixed;
+  inset: 0 0 auto;
+  height: 7px;
+  content: '';
+  background: var(--green);
+}
+
+button, input { font: inherit; }
+button { cursor: pointer; }
+
+.shell { width: min(1100px, calc(100% - 48px)); margin: 0 auto; padding: 34px 0 30px; }
+.topbar, .status, .brand, .tabs, .result-meta { display: flex; align-items: center; }
+.topbar { justify-content: space-between; margin-bottom: 74px; }
+.brand { gap: 10px; color: var(--ink); font-size: 18px; font-weight: 800; letter-spacing: -0.04em; text-decoration: none; }
+.brand-mark { display: grid; width: 28px; height: 28px; place-items: center; color: white; background: var(--green); border-radius: 8px; font-size: 20px; line-height: 1; }
+.brand-accent { color: var(--green); }
+.status { gap: 8px; color: var(--muted); font-family: 'DM Mono', monospace; font-size: 11px; text-transform: uppercase; letter-spacing: 0.07em; }
+.status-dot { width: 7px; height: 7px; background: #45bb75; border-radius: 50%; box-shadow: 0 0 0 4px #d9f2e2; }
+
+.intro { max-width: 760px; }
+.eyebrow, .panel-number { color: var(--green); font-family: 'DM Mono', monospace; font-size: 11px; letter-spacing: 0.13em; text-transform: uppercase; }
+.eyebrow { margin: 0 0 17px; }
+h1 { margin: 0; font-size: clamp(38px, 5vw, 64px); line-height: 1.04; letter-spacing: -0.065em; }
+h1 em { color: var(--green); font-style: normal; }
+.intro-copy { max-width: 500px; margin: 22px 0 0; color: var(--muted); font-size: 15px; line-height: 1.7; }
+
+.tabs { gap: 26px; margin: 66px 0 18px; border-bottom: 1px solid var(--line); }
+.tab { position: relative; padding: 0 0 15px; color: var(--muted); background: none; border: 0; font-size: 13px; font-weight: 700; }
+.tab::after { position: absolute; right: 0; bottom: -1px; left: 0; height: 2px; content: ''; background: transparent; }
+.tab.is-active { color: var(--ink); }
+.tab.is-active::after { background: var(--green); }
+
+.calculator-grid { position: relative; min-height: 490px; }
+.panel { max-width: 700px; padding: 34px 40px 38px; background: var(--panel); border: 1px solid var(--line); border-radius: 4px; box-shadow: var(--shadow); animation: rise 360ms ease both; }
+.panel-heading { display: flex; align-items: flex-start; justify-content: space-between; }
+.panel-number { display: block; margin-bottom: 10px; }
+h2 { margin: 0; font-size: 24px; letter-spacing: -0.045em; }
+.panel-icon { display: grid; width: 42px; height: 42px; place-items: center; color: var(--green); background: #edf7f0; border-radius: 50%; font-family: 'DM Mono', monospace; font-size: 17px; }
+.panel-description { margin: 11px 0 30px; color: var(--muted); font-size: 13px; }
+form { display: grid; grid-template-columns: 1fr 1fr; gap: 10px 16px; }
+label { align-self: end; color: var(--ink); font-size: 12px; font-weight: 700; }
+input { width: 100%; height: 48px; padding: 0 14px; color: var(--ink); background: #fbfcfa; border: 1px solid var(--line); border-radius: 3px; outline: none; }
+input:focus { border-color: var(--green); box-shadow: 0 0 0 3px rgba(13, 107, 76, 0.1); }
+.input-prefix { display: flex; height: 48px; overflow: hidden; background: #fbfcfa; border: 1px solid var(--line); border-radius: 3px; }
+.input-prefix:focus-within { border-color: var(--green); box-shadow: 0 0 0 3px rgba(13, 107, 76, 0.1); }
+.input-prefix span { display: grid; width: 40px; place-items: center; color: var(--muted); border-right: 1px solid var(--line); font-family: 'DM Mono', monospace; font-size: 11px; }
+.input-prefix input { height: 46px; padding-left: 11px; border: 0; background: transparent; }
+input[type=number]::-webkit-inner-spin-button { opacity: 0.35; }
+.field-hint { grid-column: 2; margin: -2px 0 14px; color: var(--muted); font-size: 10px; }
+.submit-button { grid-column: 1 / -1; display: flex; align-items: center; justify-content: space-between; width: 100%; height: 49px; margin-top: 8px; padding: 0 17px; color: white; background: var(--green); border: 0; border-radius: 3px; font-size: 12px; font-weight: 800; transition: background 160ms ease, transform 160ms ease; }
+.submit-button:hover { background: var(--green-dark); transform: translateY(-1px); }
+.submit-button:disabled { cursor: wait; opacity: 0.6; transform: none; }
+.feedback { min-height: 20px; margin-top: 13px; color: var(--coral); font-size: 11px; }
+.result { margin-top: 12px; padding: 19px 21px; background: var(--ink); border-radius: 3px; color: white; }
+.result-label { color: var(--mint); font-family: 'DM Mono', monospace; font-size: 10px; letter-spacing: 0.1em; text-transform: uppercase; }
+.result-value { display: block; margin-top: 7px; font-size: 30px; letter-spacing: -0.05em; }
+.result-meta { justify-content: space-between; gap: 14px; margin-top: 9px; color: #b5c1ba; font-size: 11px; }
+.saving { color: var(--mint); font-weight: 700; }
+
+footer { padding: 42px 0 0; color: #8a9690; font-family: 'DM Mono', monospace; font-size: 10px; }
+[hidden] { display: none !important; }
+@keyframes rise { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: translateY(0); } }
+
+@media (min-width: 800px) {
+  .calculator-grid::after { position: absolute; z-index: -1; top: 50px; right: 0; width: 35%; height: 330px; content: ''; background: var(--mint); opacity: 0.36; }
+}
+
+@media (max-width: 620px) {
+  .shell { width: min(100% - 32px, 520px); padding-top: 27px; }
+  .topbar { margin-bottom: 54px; }
+  h1 { font-size: 40px; }
+  .tabs { gap: 18px; margin-top: 48px; }
+  .tab { font-size: 11px; }
+  .panel { padding: 28px 20px 24px; }
+  form { grid-template-columns: 1fr; }
+  .field-hint { grid-column: auto; margin-bottom: 8px; }
+  .submit-button { margin-top: 10px; }
+}
