@@ -2,7 +2,7 @@
 
 from decimal import Decimal, ROUND_HALF_UP
 
-VALOR_MINIMO_DESCONTO = Decimal("50.00")
+VALOR_MINIMO_DESCONTO = Decimal("100.00")
 CUPONS_VALIDOS = {
     "PROMO15": Decimal("0.15"),
     "PROMO10": Decimal("0.10"),
