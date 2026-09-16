@@ -6,10 +6,10 @@ VALOR_MINIMO_DESCONTO = Decimal("50.00")
 CUPONS_VALIDOS = {
     "PROMO15": Decimal("0.15"),
     "PROMO10": Decimal("0.10"),
-    "DESCONTO15": Decimal("0.20"),
-    "ECONOMIZE15": Decimal("0.12"),
-    "CLIENTE15": Decimal("0.08"),
-    "OFERTA15": Decimal("0.05"),
+    "DESCONTO20": Decimal("0.20"),
+    "ECONOMIZE12": Decimal("0.12"),
+    "CLIENTE08": Decimal("0.08"),
+    "OFERTA05": Decimal("0.05"),
 }
 
 
